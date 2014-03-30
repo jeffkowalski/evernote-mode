@@ -162,7 +162,7 @@
   :group 'evernote
   :type '(list string))
 
-(defcustom evernote-enml-formatter-command 
+(defcustom evernote-enml-formatter-command
   '("w3m" "-dump" "-I" "UTF8" "-O" "UTF8")
   "*Formatter for xhtml"
   :group 'evernote)
@@ -180,13 +180,10 @@
 
 (defcustom evernote-developer-token nil
   "*An developer token of your evernote."
-  :link '(url-link 
+  :link '(url-link
           "http://dev.evernote.com/doc/articles/authentication.php#devtoken")
   :group 'evernote
   :type '(list string))
-
-(defvar evernote-developer-token nil
-  "*A developer token of your evernote")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Interface for evernote-browsing-mode.
@@ -586,8 +583,8 @@
                                           (car usernames) 'usernames)))
                (cache-passwd (enutil-aget username cache)))
           (unless (and cache-passwd
-                       (eq (catch 'error 
-                             (progn 
+                       (eq (catch 'error
+                             (progn
                                (enh-command-login username cache-passwd)
                                t))
                            t))
