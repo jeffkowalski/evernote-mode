@@ -1,1 +1,7 @@
+ruby/.config
+ruby/InstalledFiles
+*~
 *.elc
+*.orig
+*.rej
+TAGS
