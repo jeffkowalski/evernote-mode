@@ -24,6 +24,34 @@ in Emacs set the custom variable `evernote-developer-token`.  If
 `evernote-mode` is loaded this can be done easily with `M-x
 customize-group evernote`.
 
+
+.emacs SETUP
+-------------
+Below is a sample .emacs config file,
+
+<code>
+(add-to-list 'load-path "~/.emacs.d/evernote-mode")
+(require 'evernote-mode)
+(setq evernote-username "<EVERNOTE USERNAME>") ; optional: you can use this username as default.
+(setq evernote-enml-formatter-command '("w3m" "-dump" "-I" "UTF8" "-O" "UTF8")) ; option
+(global-set-key "\C-cec" 'evernote-create-note)
+(global-set-key "\C-ceo" 'evernote-open-note)
+(global-set-key "\C-ces" 'evernote-search-notes)
+(global-set-key "\C-ceS" 'evernote-do-saved-search)
+(global-set-key "\C-cew" 'evernote-write-note)
+(global-set-key "\C-cep" 'evernote-post-region)
+(global-set-key "\C-ceb" 'evernote-browser)
+(custom-set-variables '(evernote-developer-token "<EVERNOTE DEV TOKEN>"))
+</code>
+
+In this case, you will also need to install w3m,
+
+     apt-get install w3m
+
+or
+
+     yum install w3m
+
 [1]: http://code.google.com/p/emacs-evernote-mode/ "Original source"
 
 [2]: https://github.com/rubbish/evernote-mode "rubbish/evernote-mode"
