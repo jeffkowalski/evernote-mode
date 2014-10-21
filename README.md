@@ -29,7 +29,7 @@ customize-group evernote`.
 -------------
 Below is a sample .emacs config file,
 
-<code>
+```{lisp}
 (add-to-list 'load-path "~/.emacs.d/evernote-mode")
 (require 'evernote-mode)
 (setq evernote-username "<EVERNOTE USERNAME>") ; optional: you can use this username as default.
@@ -42,7 +42,7 @@ Below is a sample .emacs config file,
 (global-set-key "\C-cep" 'evernote-post-region)
 (global-set-key "\C-ceb" 'evernote-browser)
 (custom-set-variables '(evernote-developer-token "<EVERNOTE DEV TOKEN>"))
-</code>
+```
 
 In this case, you will also need to install w3m,
 
