@@ -93,11 +93,13 @@ module EnClient
       fields = str.split ","
       fields.each do |f|
         f =~ /\A([^=]*)=(.*)\z/
+        if $1.nil? then
+          next;
+        end
         varsym = $1.to_sym
         varval_str = $2
         vartype = serialized_fields[varsym]
         #puts "[#{varsym}], [#{varval_str}], [#{vartype}]"
-
         varval =
           if varval_str
             case vartype
@@ -219,9 +221,9 @@ module Evernote
 
         def serialized_fields
           { :subjectDate => :field_type_timestamp,
-            :latitude => :field_type_string, # double
-            :longitude => :field_type_string, # double
-            :altitude => :field_type_string, # double
+            :latitude => :field_type_int, # double
+            :longitude => :field_type_int, # double
+            :altitude => :field_type_int, # double
             :author => :field_type_string,
             :source => :field_type_string,
             :sourceURL => :field_type_string,
@@ -531,8 +533,8 @@ module EnClient
     def to_xhtml(content)
       content = CGI.escapeHTML content
       content.gsub! %r{ }, %{&nbsp;}
-        content.gsub! %r{(?:\r\n)|\n|\r}, %|<br clear="none"/>|
-        content = NOTE_DEFAULT_HEADER + content + NOTE_DEFAULT_FOOTER
+      content.gsub! %r{(?:\r\n)|\n|\r}, %|<br clear="none"/>|
+      content = NOTE_DEFAULT_HEADER + content + NOTE_DEFAULT_FOOTER
     end
   end
 
