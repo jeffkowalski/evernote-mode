@@ -1826,7 +1826,7 @@ module EnClient
     end
 
     def self.sexp_string_escape(str)
-      str.gsub(/\\/,'\&\&').gsub(/"/, '\\"')
+      str.to_s.gsub(/\\/,'\&\&').gsub(/"/, '\\"')
     end
 
     def self.remove_package_names(full_class_name)
