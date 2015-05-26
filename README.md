@@ -17,9 +17,15 @@ all of this stuff working.  Run the following command:
 
     gem install evernote_oauth
 
+Clone this repo and run setup.rb:
+
+    git clone https://github.com/pymander/evernote-mode
+    cd evernote-mode/ruby
+    ruby setup.rb
+
 Copy `evernote-mode.el` to your load path.
 
-
+See the [Original Readme][5] for installation and usage details.
 
 CONFIGURATION
 -------------
@@ -56,6 +62,11 @@ In this case, you will also need to install w3m,
 or
 
      yum install w3m
+TROUBLESHOOTING
+---------------
+
+If you get an error message regarding enclient.rb, you may need to modify
+the variable enh-enclient-command in evernote-mode.el (check to see where setup.rb installed it).
 
 [1]: http://code.google.com/p/emacs-evernote-mode/ "Original source"
 
@@ -65,7 +76,4 @@ or
 
 [4]: http://dev.evernote.com/doc/articles/authentication.php#devtoken "Evernote Authentication"
 
-
-
-
-
+[5]: http://emacs-evernote-mode.googlecode.com/svn/branches/0_41/doc/readme_en.html "Original Readme"

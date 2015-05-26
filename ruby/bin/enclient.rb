@@ -182,7 +182,7 @@ module EnClient
             end
             str += "))"
           when :field_type_object
-            str += "(#{varsym} . " 
+            str += "(#{varsym} . "
             str += varval.to_sexp
             str += ")"
           else
@@ -1837,7 +1837,12 @@ module EnClient
     def self.to_ascii(*rest)
       if IS_FORCE_ENCODING_SUPPORTED
         rest.each do |elem|
-          elem.force_encoding Encoding::UTF_8 if elem
+          if elem
+           if elem.bytesize > elem.length
+             return
+           end
+          end
+          elem.force_encoding Encoding::ASCII_8BIT if elem
         end
       end
     end
